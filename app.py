@@ -5,8 +5,8 @@ def identity_function(input_image):
 
 iface = gr.Interface(
     fn=identity_function,
-    inputs=gr.inputs.Image(),
-    outputs=gr.outputs.Image()
+    inputs=gr.inputs.Image(type="pil"),
+    outputs=gr.outputs.Image(type="pil")
 )
 
-iface.launch(share=True)
+iface.launch()
