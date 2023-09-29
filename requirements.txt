@@ -1,6 +1,6 @@
-opencv-python
-numpy
-skimage
-dlib
-imutils
-PIL
+opencv-python==4.8.0.76
+numpy==1.23.5
+scikit-image==0.21.0
+dlib==19.24.2
+imutils==0.5.4
+pillow==9.4.0
