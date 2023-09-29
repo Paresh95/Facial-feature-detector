@@ -1,0 +1,6 @@
+cv2
+numpy
+skimage
+dlib
+imutils
+PIL
