@@ -10,19 +10,12 @@ from utils.cv_utils import get_image
 from typing import Tuple
 
 
-#TODO: face texture class - face detector and output face
-#TODO: create YAML file to point towards static parameters
-#TODO: Test main output and app
-#TODO: Consider using other method for face detector - this one not as reliable
-#TODO: Text output showing other examples - celeb, child, gender
-
-
 class GetFaceTexture:
     def __init__(self) -> None:
         pass
     
     def preprocess_image(self, image) -> np.array:
-        image = imutils.resize(image, width=800)
+        image = imutils.resize(image, width=400)
         gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         return gray_image
     
