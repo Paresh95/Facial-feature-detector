@@ -61,5 +61,5 @@ class GetFaceTexture:
 
 
 if __name__ == "__main__":
-    image_path = "data/images_symmetry/gigi_hadid.webp"
+    image_path = "data/gigi_hadid.webp"
     print(GetFaceTexture().main(image_path))

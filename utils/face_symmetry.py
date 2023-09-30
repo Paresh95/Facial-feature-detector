@@ -22,13 +22,13 @@ class GetFaceSymmetry:
     def get_faces(self, image: np.array) -> np.array:
         self.h, self.w = image.shape[:2]
         blob = cv2.dnn.blobFromImage(image=image, scalefactor=1.0, size=(300, 300))
-        net = cv2.dnn.readNetFromCaffe(
-            parameters["face_detection"]["prototxt"],
+        face_detector_net = cv2.dnn.readNetFromCaffe(
+            parameters["face_detection"]["config"],
             parameters["face_detection"]["model"],
         )
-        net.setInput(blob)
-        detections = net.forward()
-        return detections
+        face_detector_net.setInput(blob)
+        face_detections = face_detector_net.forward()
+        return face_detections
 
     @staticmethod
     def postprocess_face(face: np.array) -> np.array:
@@ -105,15 +105,15 @@ class GetFaceSymmetry:
         }
         return d
 
-    def main(self, image_input):
+    def main(self, image_input) -> Tuple:
         image = get_image(image_input)
-        detections = self.get_faces(image)
+        face_detections = self.get_faces(image)
         lowest_mse = float("inf")
         best_face_data, best_left_half, best_right_half = None, None, None
-        for i in range(0, detections.shape[2]):
-            confidence = detections[0, 0, i, 2]
+        for i in range(0, face_detections.shape[2]):
+            confidence = face_detections[0, 0, i, 2]
             if confidence > 0.99:
-                box = detections[0, 0, i, 3:7] * np.array(
+                box = face_detections[0, 0, i, 3:7] * np.array(
                     [self.w, self.h, self.w, self.h]
                 )
                 (startX, startY, endX, endY) = box.astype("int")
@@ -137,6 +137,6 @@ class GetFaceSymmetry:
 
 
 if __name__ == "__main__":
-    image_path = "data/images_symmetry/gigi_hadid.webp"
+    image_path = "data/gigi_hadid.webp"
     results = GetFaceSymmetry().main(image_path)
     print(results)

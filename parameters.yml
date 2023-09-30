@@ -1,3 +1,9 @@
 face_detection:
-  prototxt: "models/face_detection/deploy.prototxt.txt"
+  config: "models/face_detection/deploy.prototxt.txt"
   model: "models/face_detection/res10_300x300_ssd_iter_140000.caffemodel"
+face_age:
+  config: "models/face_age/age_deploy.prototxt"
+  model: "models/face_age/age_net.caffemodel"
+face_gender:
+  config: "models/face_gender/gender_deploy.prototxt"
+  model: "models/face_gender/gender_net.caffemodel"
