@@ -7,3 +7,5 @@ face_age:
 face_gender:
   config: "models/face_gender/gender_deploy.prototxt"
   model: "models/face_gender/gender_net.caffemodel"
+face_landmarks:
+  model: 'models/face_alignment/shape_predictor_68_face_landmarks.dat'

@@ -14,7 +14,7 @@ class GetFaceTexture:
 
     @staticmethod
     def preprocess_image(image) -> np.array:
-        image = imutils.resize(image, width=300)
+        image = imutils.resize(image, width=500)
         gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         return gray_image
 
