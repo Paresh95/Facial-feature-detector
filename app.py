@@ -1,7 +1,7 @@
 import gradio as gr
-from utils.face_texture import GetFaceTexture
-from utils.face_symmetry import GetFaceSymmetry
-from utils.face_demographics import GetFaceDemographics
+from src.face_texture import GetFaceTexture
+from src.face_symmetry import GetFaceSymmetry
+from src.face_demographics import GetFaceDemographics
 
 
 def combined_fn(input_image):

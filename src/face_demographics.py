@@ -3,7 +3,7 @@ import yaml
 import numpy as np
 import os
 from typing import Tuple
-from utils.cv_utils import get_image
+from src.cv_utils import get_image
 
 
 with open("parameters.yml", "r") as stream:

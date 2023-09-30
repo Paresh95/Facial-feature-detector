@@ -4,7 +4,7 @@ from skimage.feature import local_binary_pattern
 import dlib
 import imutils
 from PIL import Image as PILImage
-from utils.cv_utils import get_image
+from src.cv_utils import get_image
 from typing import Tuple, List, Union
 
 

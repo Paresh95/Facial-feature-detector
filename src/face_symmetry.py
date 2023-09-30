@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from utils.cv_utils import get_image
+from src.cv_utils import get_image
 from typing import Tuple, List, Union
 from skimage.metrics import structural_similarity as ssim
 from scipy.spatial import distance
