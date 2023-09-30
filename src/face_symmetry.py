@@ -112,7 +112,7 @@ class GetFaceSymmetry:
         best_face_data, best_left_half, best_right_half = None, None, None
         for i in range(0, face_detections.shape[2]):
             confidence = face_detections[0, 0, i, 2]
-            if confidence > 0.99:
+            if confidence > 0.98:
                 box = face_detections[0, 0, i, 3:7] * np.array(
                     [self.w, self.h, self.w, self.h]
                 )
