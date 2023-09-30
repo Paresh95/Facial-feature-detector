@@ -6,3 +6,4 @@ imutils==0.5.4
 pillow==9.4.0
 pyyaml==6.0
 scikit-learn==1.2.2
+transfomers==4.28.1
