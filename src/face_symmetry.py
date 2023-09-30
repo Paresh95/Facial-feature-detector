@@ -133,6 +133,7 @@ class GetFaceSymmetry:
 
         full_face = np.hstack((best_left_half, best_right_half))
         full_face = PILImage.fromarray(full_face)
+        best_face_data = {k: float(round(v, 2)) for k, v in best_face_data.items()}
         return full_face, best_face_data
 
 

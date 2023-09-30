@@ -68,7 +68,7 @@ class GetFaceDemographics:
         output = model(**inputs)
         proba = output.logits.softmax(1)
         preds = proba.argmax(1)  
-        age_confidence_score = max(proba[0]).item()
+        age_confidence_score = round(max(proba[0]).item(), 2)
         age = id2label[int(preds)]
         return age, age_confidence_score
     
@@ -86,7 +86,7 @@ class GetFaceDemographics:
         output = model(**inputs)
         proba = output.logits.softmax(1)
         preds = proba.argmax(1)  
-        gender_confidence_score = max(proba[0]).item()
+        gender_confidence_score = round(max(proba[0]).item(), 2)
         gender = id2label[int(preds)]
         return gender, gender_confidence_score
 

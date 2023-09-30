@@ -57,7 +57,7 @@ class GetFaceTexture:
         face_image = self.get_face(gray_image)
         lbp, std = self.get_face_texture(face_image)
         face_texture_image = self.postprocess_image(lbp)
-        return face_texture_image, face_image, std
+        return face_image, face_texture_image, {"Texture std": round(std, 2)}
 
 
 if __name__ == "__main__":

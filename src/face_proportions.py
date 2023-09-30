@@ -107,7 +107,9 @@ class GetFaceProportions:
         gray_image = self.preprocess_image(image)
         shape, image = self.detect_face_landmarks(gray_image)
         golden_ratios = self.compute_golden_ratios(shape)
+        golden_ratios = {k: round(v, 2) for k, v in golden_ratios.items()}
         equal_ratios = self.compute_equal_ratios(shape)
+        equal_ratios = {k: round(v, 2) for k, v in equal_ratios.items()}
         image = PILImage.fromarray(image)        
         return golden_ratios, equal_ratios, image
         
