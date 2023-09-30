@@ -1,8 +1,8 @@
 ---
 title: Facial Feature Detector
-emoji: 🦀
-colorFrom: purple
-colorTo: indigo
+emoji: 🔍
+colorFrom: orange
+colorTo: orange
 sdk: gradio
 sdk_version: 3.45.2
 app_file: app.py
