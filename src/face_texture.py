@@ -4,7 +4,7 @@ from skimage.feature import local_binary_pattern
 import dlib
 import imutils
 from PIL import Image as PILImage
-from src.cv_utils import get_image
+from src.cv_utils import get_image, resize_image_height
 from typing import Tuple, List, Union
 
 
@@ -51,12 +51,15 @@ class GetFaceTexture:
         lbp = (lbp * 255).astype(np.uint8)
         return PILImage.fromarray(lbp)
 
-    def main(self, image_input) -> List[Union[PILImage.Image, np.array, float]]:
+    def main(self, image_input) -> List[Union[PILImage.Image, PILImage.Image, dict]]:
         image = get_image(image_input)
         gray_image = self.preprocess_image(image)
         face_image = self.get_face(gray_image)
         lbp, std = self.get_face_texture(face_image)
         face_texture_image = self.postprocess_image(lbp)
+        face_image = PILImage.fromarray(face_image)
+        face_image = resize_image_height(face_image, new_height=300)   
+        face_texture_image = resize_image_height(face_texture_image, new_height=300)    
         return face_image, face_texture_image, {"Texture std": round(std, 2)}
 
 

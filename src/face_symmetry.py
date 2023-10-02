@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from src.cv_utils import get_image
+from src.cv_utils import get_image, resize_image_height
 from typing import Tuple, List, Union
 from skimage.metrics import structural_similarity as ssim
 from scipy.spatial import distance
@@ -132,9 +132,10 @@ class GetFaceSymmetry:
                 lowest_mse = d["mse"]
 
         full_face = np.hstack((best_left_half, best_right_half))
-        full_face = PILImage.fromarray(full_face)
+        full_face_image = PILImage.fromarray(full_face)
+        full_face_image = resize_image_height(full_face_image, new_height=300) 
         best_face_data = {k: float(round(v, 2)) for k, v in best_face_data.items()}
-        return full_face, best_face_data
+        return full_face_image, best_face_data
 
 
 if __name__ == "__main__":

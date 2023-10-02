@@ -9,3 +9,29 @@ face_gender:
   model: "models/face_gender/gender_net.caffemodel"
 face_landmarks:
   model: 'models/face_alignment/shape_predictor_68_face_landmarks.dat'
+results_interpretation:
+  Demographic predictions:
+    age_range: "Predicted age"
+    age_confidence: "Confidence of age prediction (0-1)"
+    gender: "Predicted gender"
+    gender_confidence: "Confidence of gender prediction (0-1)"
+  Face proportions (golden ratio):
+    Ideal ratio (golden ratio): "The ideal facial proportion ratio according to the classical Greek work on maths and geometry. Ideal facial features ratios in this section should be 1:1.62 (the golden ratio)"
+    Top of nose to middle of mouth vs middle mouth to bottom of chin: "See description"
+    Middle of mouth to bottom of mouth vs top of mouth to middle of mouth: "See description"
+  Face proportions (equal ratio):
+    Ideal ratio: "Typical facial features ratios in this section should be 1:1 (equal ratio)"
+    Eye width vs distance between eyes: "See description"
+    Eye to eyebrows vs eye height: "See description"
+    Center of left to right eye vs mouth width: "See description"
+  Face symmetry metrics:
+    structural_similarity: "Range: -1 (opposite) to 1 (similar). Considers differences in structural information, luminance, and texture."
+    cosine_distance: "Ranges: -1 to 1. 0 =similar, -1 or 1 = not similar. Considers differences in pixels."
+    mse: Lower means more similar. Minimum value is 0, maximum is unbounded. Measures pixel differences."
+    mae:  Lower means more similar. Minimum value is 0, maximum is unbounded. Measures pixel differences."
+    histogram_correlation: "Range: -1 (opposite) to 1 (similar). Considers similarity based on color or intensity distributions."
+    histogram_intersection: "Range: 0 (similar) to total pixels in image (not similar). Consider similarity based on color or intensity distributions."
+    orb_detector_matches: "Higher is better. Counts the number of matches between keypoints in images."
+    pixel_difference: "Lower is better.  Minimum value is 0, maximum is unbounded."
+  Face texture metrics:
+    Texture std: "Lower means less varied facial texture. Minimum is 0, maximum is unbounded."

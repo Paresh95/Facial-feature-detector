@@ -4,7 +4,7 @@ import cv2
 import os
 import numpy as np
 import imutils
-from src.cv_utils import get_image
+from src.cv_utils import get_image, resize_image_height
 from typing import List, Union
 from PIL import Image as PILImage
 
@@ -110,7 +110,8 @@ class GetFaceProportions:
         golden_ratios = {k: round(v, 2) for k, v in golden_ratios.items()}
         equal_ratios = self.compute_equal_ratios(shape)
         equal_ratios = {k: round(v, 2) for k, v in equal_ratios.items()}
-        image = PILImage.fromarray(image)        
+        image = PILImage.fromarray(image)     
+        image = resize_image_height(image, new_height=300)
         return golden_ratios, equal_ratios, image
         
 
