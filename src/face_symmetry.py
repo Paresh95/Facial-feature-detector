@@ -118,7 +118,9 @@ class GetFaceSymmetry:
                 )
                 (startX, startY, endX, endY) = box.astype("int")
                 face = image[startY:endY, startX:endX]
-                if face.shape[0] != 0: # temp fix bug where image of dim (0, 0, 3) appear
+                if (
+                    face.shape[0] != 0
+                ):  # temp fix bug where image of dim (0, 0, 3) appear
                     face = self.postprocess_face(face)
                     left_half, right_half = self.get_face_halves(face)
                     d = self.get_face_similarity_results(left_half, right_half)
@@ -133,7 +135,7 @@ class GetFaceSymmetry:
 
         full_face = np.hstack((best_left_half, best_right_half))
         full_face_image = PILImage.fromarray(full_face)
-        full_face_image = resize_image_height(full_face_image, new_height=300) 
+        full_face_image = resize_image_height(full_face_image, new_height=300)
         best_face_data = {k: float(round(v, 2)) for k, v in best_face_data.items()}
         return full_face_image, best_face_data
 

@@ -31,7 +31,7 @@ class GetFaceTexture:
             faces[0].width(),
             faces[0].height(),
         )
-        face_image = gray_image[y: y + h, x: x + w]
+        face_image = gray_image[y : y + h, x : x + w]
         return face_image
 
     @staticmethod
@@ -58,9 +58,9 @@ class GetFaceTexture:
         lbp, std = self.get_face_texture(face_image)
         face_texture_image = self.postprocess_image(lbp)
         face_image = PILImage.fromarray(face_image)
-        face_image = resize_image_height(face_image, new_height=300)   
-        face_texture_image = resize_image_height(face_texture_image, new_height=300)    
-        return face_image, face_texture_image, {"Texture std": round(std, 2)}
+        face_image = resize_image_height(face_image, new_height=300)
+        face_texture_image = resize_image_height(face_texture_image, new_height=300)
+        return face_image, face_texture_image, {"texture_std": round(std, 2)}
 
 
 if __name__ == "__main__":
